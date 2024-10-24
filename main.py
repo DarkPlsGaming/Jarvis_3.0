@@ -1,17 +1,13 @@
-import outputHandling
+from commands import Commands
 
 
 class InitJarvis:
     def __init__(self):
-        self.speaker = outputHandling.Speaker()
-
-
-    def greet(self):
-        self.speaker.speak("Good morning Sir, the temperature outside is 9 degree Celsius")
+        self.commands = Commands()
 
 
     def start(self):
-        self.greet()
+        self.commands.greet()
 
 
 if __name__ == "__main__":
