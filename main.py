@@ -1,6 +1,7 @@
 from commands import Commands
 import keyboardHandling
 import inputHandling
+import commandHandling
 
 
 class InitJarvis:
@@ -8,10 +9,11 @@ class InitJarvis:
         self.commands = Commands()
         self.keyHandler = keyboardHandling.KeyboardHandler()
         self.inpHandler = inputHandling.InputListener()
+        self.cmdHandler = commandHandling.CommandHandling()
 
 
     def handleQuery(self, query: str):
-        print(query)
+        self.cmdHandler.handleCommand(query)
 
 
     def __startListen(self):

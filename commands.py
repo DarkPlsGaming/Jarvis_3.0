@@ -7,7 +7,17 @@ class Commands:
         self.speaker = Speaker()
 
 
+    def shutDown(self):
+        self.speaker.speak("Shutting Off!")
+        gF.shutdown()
+
+
+    def getTemp(self):
+        self.speaker.speak(f"The temperature in {gF.getLocation()} is {gF.getTemperature()}")
+
+
     def greet(self):
         phrase = gF.getGreetPhrase()
         temp = f"The temperature outside is {gF.getTemperature()}`"
         self.speaker.speak(phrase + temp)
+
