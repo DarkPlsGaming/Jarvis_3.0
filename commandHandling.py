@@ -1,11 +1,16 @@
+# The purpose of this file is to look for specific keywords in the user query and perform the appropriate action.
+
+# Imports
 import commands
 
 
+# Main Class
 class CommandHandling:
     def __init__(self):
-        self.command = commands.Commands()
+        self.command = commands.Commands()  # An instance of the class "Commands"
 
 
+    # The main method that handles user query
     def handleCommand(self, query: str):
         if "open" in query:
             self.command.dealOpen(query)

@@ -1,10 +1,13 @@
-import garbageFunctions as gF
-from outputHandling import Speaker
+# This file consists of all the commands that is used by the "commandHandling" file
+
+# Imports
+import garbageFunctions as gF  # All the non-important functions are located here
+from outputHandling import Speaker  # Output Class
 
 
 class Commands:
     def __init__(self):
-        self.speaker = Speaker()
+        self.speaker = Speaker()  # Initializing output class
 
 
     def shutDown(self):
@@ -22,7 +25,7 @@ class Commands:
         self.speaker.speak(phrase + temp)
 
 
-    def dealOpen(self, query: str):
+    def dealOpen(self, query: str):  # All queries related to opening applications or websites are processed here
         app = gF.openWebApps(query)
 
         if not app:
@@ -30,3 +33,4 @@ class Commands:
             return None
 
         self.speaker.speak(f"Opening {app}")
+        print(f"Opening {app}")

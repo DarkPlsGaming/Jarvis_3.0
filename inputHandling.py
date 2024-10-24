@@ -1,24 +1,29 @@
+# This file contains all the methods related to taking user input
+
+# Imports
 import speech_recognition as sr
 from outputHandling import Speaker
 
 
+# Main Class
 class InputListener:
     def __init__(self):
-        self.recognizer = sr.Recognizer()
-        self.speaker = Speaker()
+        self.recognizer = sr.Recognizer()  # Initializing an instance of speech input
+        self.speaker = Speaker()  # Initializing an instance of the Speaker() class for speech output
 
 
     # Private Method
     def __recognizeAudio(self, audio):
         try:
-            query: str = self.recognizer.recognize_google(audio, language="en-in")
+            query: str = self.recognizer.recognize_google(audio, language="en-in")  # Recognizing using google
             return query.lower()
 
         except:
-            self.speaker.speak("Sorry Sir, I did not get that!")
+            self.speaker.speak("Sorry Sir, I did not get that!")  # In case of an unexpected exception
             return None
 
 
+    # Starts listening for speech input
     def startListen(self) -> str:
         # Input
         with sr.Microphone() as source:

@@ -1,3 +1,6 @@
+# This file consists of all the non-important functions that are required by other classes/files (particularly commands.py)
+
+# Imports
 import json
 from urllib.request import urlopen
 import requests
@@ -6,30 +9,33 @@ from bs4 import BeautifulSoup
 import openAppSites
 
 
-def getAppWeb(query: str) -> str | None:  # For open, gets the application or website name
+def getAppWeb(query: str) -> str | None:  # For openWebApps function, gets the application or website name
     try:
-        startLoc = query.find("open") + 5
+        startLoc = query.find("open") + 5  # Locating "open" in user query
         endLoc = startLoc
         while query[endLoc] != " " and endLoc < len(query)-1:
             endLoc += 1
 
-        return query[startLoc:endLoc+1].strip()
+        return query[startLoc:endLoc+1].strip()  # Returning the word that is after "open" in user query
 
     except IndexError:
         return None
 
 
 def openWebApps(query: str):
-    appName: str | None = getAppWeb(query)
-    openAppSite = openAppSites.OpenAppSites()
+    appName: str | None = getAppWeb(query)  # Identifies the application/website name
+    openAppSite = openAppSites.OpenAppSites()  # Instance of the class "OpenAppSites"
 
     if not appName:
         return None
 
     if not openAppSite.openApplication(appName):
-        openAppSite.openWebsite(appName)
+        result = openAppSite.openWebsite(appName)
 
-    del openAppSite
+        if not result:  # If the requested app is neither application nor website
+            return None
+
+    del openAppSite  # Deleting the instance as it is not needed anymore
     return appName
 
 
