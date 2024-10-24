@@ -10,7 +10,7 @@ class InputListener:
     # Private Method
     def __recognizeAudio(self, audio):
         try:
-            query = self.recognizer.recognize_google(audio, language="en-in")
+            query: str = self.recognizer.recognize_google(audio, language="en-in")
             return query
 
         except:
@@ -18,14 +18,14 @@ class InputListener:
             return None
 
 
-    def startListen(self):
+    def startListen(self) -> str:
         # Input
         with sr.Microphone() as source:
             self.recognizer.pause_threshold = 1
             audio = self.recognizer.listen(source)
 
         # Recognition
-        query = self.__recognizeAudio(audio)
+        query: str | None = self.__recognizeAudio(audio)
 
         # Error Handling
         if query is None:

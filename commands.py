@@ -9,5 +9,5 @@ class Commands:
 
     def greet(self):
         phrase = gF.getGreetPhrase()
-        temp = f"The temperature outside is {gF.getTemperature()}"
+        temp = f"The temperature outside is {gF.getTemperature()}`"
         self.speaker.speak(phrase + temp)
