@@ -18,6 +18,15 @@ class Commands:
 
     def greet(self):
         phrase = gF.getGreetPhrase()
-        temp = f"The temperature outside is {gF.getTemperature()}`"
+        temp = f"The temperature outside is {gF.getTemperature()}"
         self.speaker.speak(phrase + temp)
 
+
+    def dealOpen(self, query: str):
+        app = gF.openWebApps(query)
+
+        if not app:
+            self.speaker.speak("Sorry, the application was not found!")
+            return None
+
+        self.speaker.speak(f"Opening {app}")

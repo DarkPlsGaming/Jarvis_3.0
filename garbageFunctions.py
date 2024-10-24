@@ -3,6 +3,34 @@ from urllib.request import urlopen
 import requests
 import os
 from bs4 import BeautifulSoup
+import openAppSites
+
+
+def getAppWeb(query: str) -> str | None:  # For open, gets the application or website name
+    try:
+        startLoc = query.find("open") + 5
+        endLoc = startLoc
+        while query[endLoc] != " " and endLoc < len(query)-1:
+            endLoc += 1
+
+        return query[startLoc:endLoc+1].strip()
+
+    except IndexError:
+        return None
+
+
+def openWebApps(query: str):
+    appName: str | None = getAppWeb(query)
+    openAppSite = openAppSites.OpenAppSites()
+
+    if not appName:
+        return None
+
+    if not openAppSite.openApplication(appName):
+        openAppSite.openWebsite(appName)
+
+    del openAppSite
+    return appName
 
 
 def shutdown():
@@ -31,6 +59,5 @@ def getGreetPhrase():
     return "Good afternoon Sir!"
 
 
-
 if __name__ == "__main__":
-    print(getTemperature())
+    print(openWebApps("open notepad"))

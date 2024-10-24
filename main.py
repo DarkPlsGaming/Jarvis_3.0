@@ -12,14 +12,15 @@ class InitJarvis:
         self.cmdHandler = commandHandling.CommandHandling()
 
 
-    def handleQuery(self, query: str):
-        self.cmdHandler.handleCommand(query)
-
-
     def __startListen(self):
         while True:
             if self.keyHandler.listenForKey() == 1:
                 self.handleQuery(self.inpHandler.startListen())
+
+
+    def handleQuery(self, query: str):
+        # print(query)
+        self.cmdHandler.handleCommand(query)
 
 
     def start(self):

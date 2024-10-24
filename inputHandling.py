@@ -7,11 +7,12 @@ class InputListener:
         self.recognizer = sr.Recognizer()
         self.speaker = Speaker()
 
+
     # Private Method
     def __recognizeAudio(self, audio):
         try:
             query: str = self.recognizer.recognize_google(audio, language="en-in")
-            return query
+            return query.lower()
 
         except:
             self.speaker.speak("Sorry Sir, I did not get that!")

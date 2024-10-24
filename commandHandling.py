@@ -7,9 +7,11 @@ class CommandHandling:
 
 
     def handleCommand(self, query: str):
+        if "open" in query:
+            self.command.dealOpen(query)
+
         if "shut" in query and "down" in query:
             self.command.shutDown()
-
 
         if "what" in query and "temperature" in query:
             self.command.getTemp()
