@@ -1,0 +1,16 @@
+This file documents the working of J3.
+
+Upon initialization, J3 starts listening for the key (right control). The key is the button which starts the user
+speech input when it's pressed. Then, the speech input is taken, converted to text and then is checked for commands.
+If there is no command in the string, it is ignored, otherwise the command is executed.
+
+main.py -> Responsible for initialization of J3
+keyboardHandling.py -> Responsible for keyboard monitoring and sending inputs to keyboard
+inputHandling.py -> Responsible for dealing with user input
+commandHandling.py -> Checks for keywords related to command's in user query
+commands.py -> Contains all the commands of J3
+garbageFunctions.py -> Contains all the external commands that are used by other files (mainly commands.py)
+outputHandling.py -> Related to all speech output of J3
+
+openAppSites.py -> User for the opening and closing of applications or websites
+UniversalVariables.py -> Contains all the external data used by J3

@@ -10,6 +10,11 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def selfTerminate(self):
+        self.speaker.speak("Terminating myself!")
+        gF.terminate()
+
+
     def shutDown(self):
         self.speaker.speak("Shutting Off!")
         gF.shutdown()
@@ -27,10 +32,7 @@ class Commands:
 
     def dealOpen(self, query: str):  # All queries related to opening applications or websites are processed here
         app = gF.openWebApps(query)
-
         if not app:
             self.speaker.speak("Sorry, the application was not found!")
             return None
-
         self.speaker.speak(f"Opening {app}")
-        print(f"Opening {app}")

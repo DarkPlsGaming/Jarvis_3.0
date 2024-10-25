@@ -5,8 +5,13 @@ import json
 from urllib.request import urlopen
 import requests
 import os
+import sys
 from bs4 import BeautifulSoup
 import openAppSites
+
+
+def terminate():
+    sys.exit(0)
 
 
 def getAppWeb(query: str) -> str | None:  # For openWebApps function, gets the application or website name
@@ -62,7 +67,7 @@ def getTemperature():
 
 
 def getGreetPhrase():
-    return "Good afternoon Sir!"
+    return "Good afternoon Sir!"  # To be changed to multiple random phrases by Lafiz
 
 
 if __name__ == "__main__":

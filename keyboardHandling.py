@@ -6,26 +6,29 @@ import pynput.keyboard
 
 # Main Class
 class KeyboardHandler:
-    def __init__(self):
+    def __init__(self):  # source: str = "timer"):  # Source stands for from which file is this class being used
+        self.targetKey = None
         self.listener = pynput.keyboard.Listener  # Initializing a keyboard listener object
 
 
-    @staticmethod
-    def __press_on(key):
-        if key == pynput.keyboard.Key.ctrl_r:  # If target key for starting of voice input is pressed
+    def __press_on(self, key):
+        if str(key) == self.targetKey:  # If target key is pressed
             raise KeyboardInterrupt  # Break out of key listening
 
 
-    def listenForKey(self):
+    def listenForKey(self, targetKey: str):
+        self.targetKey = targetKey
+
         # Starting Listening for key input
         with self.listener(on_press=self.__press_on) as lis:
             lis.join()
 
-        # If code reaches here, it means user wants to send a voice input to Jarvis
+        # If code reaches here, it means the desired key has been pressed
         return 1
 
 
 
 if __name__ == "__main__":
     kH = KeyboardHandler()
-    kH.listenForKey()
+    if kH.listenForKey("Key.ctrl_l"):
+        print("hehe boi")

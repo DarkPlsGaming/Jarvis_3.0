@@ -18,7 +18,7 @@ class InitJarvis:
 
     def __startListen(self):  # Listening for particular user key for activation
         while True:
-            if self.keyHandler.listenForKey() == 1:  # When key is pressed
+            if self.keyHandler.listenForKey("Key.ctrl_r") == 1:  # When key is pressed
                 self.handleQuery(self.inpHandler.startListen())  # Starting voice input
 
 

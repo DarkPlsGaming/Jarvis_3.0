@@ -12,6 +12,9 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if "terminate" in query:
+            self.command.selfTerminate()
+
         if "open" in query:
             self.command.dealOpen(query)
 
