@@ -12,7 +12,8 @@ class Speaker:
         self.engine.setProperty("voice", voices[1].id)  # Setting the second voice installed (subject to change)
 
 
-    def speak(self, audio):
+    @staticmethod
+    def speak(audio):
         pyttsx3.speak(audio)
         # self.engine.say(audio)  # Voice output
         # self.engine.runAndWait()

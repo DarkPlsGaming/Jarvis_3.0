@@ -10,6 +10,15 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def setAlarm(self, query):
+        output = gF.setAlarm(query)
+        if not output:
+            self.speaker.speak("Sorry Sir, there was an error setting up the timer. Please make sure the timer is set for today!")
+            return None
+
+        self.speaker.speak(f"Setting timer for {output}")
+
+
     def setTimer(self, query):
         self.speaker.speak(f"Setting timer for {gF.setTimer(query)}!")
 

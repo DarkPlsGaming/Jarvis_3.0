@@ -12,6 +12,60 @@ import openAppSites
 import JTime
 
 
+def extractTimeAlarm(query: str) -> [int, int, int]:
+    hour, minute, second = 0, 0, 0
+
+    # Finding position of "at" or "for"
+    loc = query.find("at")
+    if loc < 0:
+        loc = query.find("for")
+
+    # Finding starting of time
+    while query[loc] != " ":
+        loc += 1
+    loc += 1
+
+    timeStr = ""
+
+    # Extracting time
+    while loc < len(query) and query[loc] != " ":
+        timeStr += query[loc]
+        loc += 1
+
+    # Checking for minute in time
+    loc = timeStr.find(":")
+
+    if loc < 0: # If no minute
+        return int(timeStr), minute, second
+
+    # if minute
+    hour = ""
+    minute = ""
+
+    # Extracting hour
+    for i in range(0, loc):
+        hour += timeStr[i]
+
+    # Extracting minute
+    for i in range(loc+1, len(timeStr)):
+        minute += timeStr[i]
+
+    return int(hour), int(minute), second
+
+
+def setAlarm(query: str) -> str | None:
+    if "at" not in query and "for" not in query:
+        return None
+
+    alarm = JTime.Alarm()
+    hour, minute, second = extractTimeAlarm(query)
+
+    if not alarm.setAlarm(hour, minute, second):
+        return None
+
+    return f"{hour}:{minute}"
+
+
 def extractTime(query, time: str) -> int | None:
     if time != "hour" and time != "minute" and time != "second":
         raise InvalidBase64CharactersDefect
@@ -118,4 +172,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(openWebApps("open notepad"))
+    extractTimeAlarm("set an alarm for 10:15")
