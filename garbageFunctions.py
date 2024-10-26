@@ -2,12 +2,59 @@
 
 # Imports
 import json
+from email.errors import InvalidBase64CharactersDefect
 from urllib.request import urlopen
 import requests
 import os
 import sys
 from bs4 import BeautifulSoup
 import openAppSites
+import JTime
+
+
+def extractTime(query, time: str) -> int | None:
+    if time != "hour" and time != "minute" and time != "second":
+        raise InvalidBase64CharactersDefect
+
+    pos = query.find(f"{time}")
+    timeNeed = 0
+    if pos != -1:
+        timeNeed = ""
+        pos -= 2
+        while query[pos] != " ":
+            timeNeed += query[pos]
+            pos -= 1
+
+            if pos <= -1:
+                break
+
+        timeNeed = int(timeNeed[::-1])
+    return timeNeed
+
+
+def setTimer(query: str) -> str:
+    timer = JTime.Timer()
+
+    hour = extractTime(query, "hour")
+    minute = extractTime(query, "minute")
+    second = extractTime(query, "second")
+
+    timer.setTimer(hour, minute, second)
+    del timer
+
+    outStr: str = ""
+    if hour != 0:
+        outStr += f"{hour} hours "
+    if second == 0:
+        outStr += "and "
+    if minute != 0:
+        outStr += f"{minute} minutes "
+    if hour != 0 or minute != 0:
+        outStr += "and "
+    if second != 0:
+        outStr += f"{second} seconds"
+
+    return outStr
 
 
 def terminate():

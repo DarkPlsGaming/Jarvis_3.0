@@ -46,5 +46,4 @@ class Timer:
 
 if __name__ == "__main__":
     myTimer = Timer()
-
     myTimer.setTimer(second=5)

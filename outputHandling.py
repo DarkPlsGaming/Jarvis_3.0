@@ -13,8 +13,9 @@ class Speaker:
 
 
     def speak(self, audio):
-        self.engine.say(audio)  # Voice output
-        self.engine.runAndWait()
+        pyttsx3.speak(audio)
+        # self.engine.say(audio)  # Voice output
+        # self.engine.runAndWait()
 
 
 if __name__ == "__main__":

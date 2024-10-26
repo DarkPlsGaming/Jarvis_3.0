@@ -10,6 +10,10 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def setTimer(self, query):
+        self.speaker.speak(f"Setting timer for {gF.setTimer(query)}!")
+
+
     def selfTerminate(self):
         self.speaker.speak("Terminating myself!")
         gF.terminate()

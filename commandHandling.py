@@ -12,6 +12,9 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if "set" and "timer" in query:
+            self.command.setTimer(query)
+
         if "terminate" in query:
             self.command.selfTerminate()
 
