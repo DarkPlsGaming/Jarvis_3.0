@@ -13,12 +13,13 @@ class InputListener:
 
 
     # Private Method
+    # noinspection PyBroadException
     def __recognizeAudio(self, audio):
         try:
             query: str = self.recognizer.recognize_google(audio, language="en-in")  # Recognizing using google
             return query.lower()
 
-        except:
+        except Exception:
             self.speaker.speak("Sorry Sir, I did not get that!")  # In case of an unexpected exception
             return None
 
