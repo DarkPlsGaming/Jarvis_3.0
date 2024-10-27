@@ -12,6 +12,9 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if "set" in query and "reminder" in query:
+            self.command.setReminder(query)  # UNDER DEVELOPMENT
+
         if "set" in query and "alarm" in query:
             self.command.setAlarm(query)
 

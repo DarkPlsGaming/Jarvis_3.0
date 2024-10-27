@@ -39,7 +39,7 @@ class Timer:
         return self.__remind(outStr)
 
 
-    def setTimer(self, hour: int = 0, minute: int = 0, second: int = 0, outStr: str = "The timer has ended Sir!"):
+    def setTimer(self, hour: int = 0, minute: int = 0, second: int = 0, *, outStr: str = "The timer has ended Sir!"):
         timer = threading.Thread(target=self.__setTimer, args=[outStr, hour, minute, second])
         timer.daemon = True
         timer.start()
@@ -98,7 +98,7 @@ class Alarm:
 
         timer.setTimer(second=timerSec, outStr="Sir your alarm is going off!")
         del timer
-        print(f"Setting alarm for {hour}:{minute}")
+
         return True
 
 

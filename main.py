@@ -1,7 +1,7 @@
 # This file is the main structure of Jarvis 3.0
 
 # Inputs
-from commands import Commands
+import commands
 import keyboardHandling
 import inputHandling
 import commandHandling
@@ -10,7 +10,7 @@ import commandHandling
 class InitJarvis:
     def __init__(self):
         # noinspection GrazieInspection
-        self.commands = Commands()  # Initializing commands for the greet() command
+        self.commands = commands.Commands()  # Initializing commands for the greet() command
         self.keyHandler = keyboardHandling.KeyboardHandler()  # Initializing for listening to user key
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
@@ -22,6 +22,10 @@ class InitJarvis:
                 self.handleQuery(self.inpHandler.startListen())  # Starting voice input
 
 
+    def __checkForReminders(self):
+        self.commands.checkReminder()
+
+
     def handleQuery(self, query: str):
         # print(query)
         self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file
@@ -29,6 +33,7 @@ class InitJarvis:
 
     def start(self):
         self.commands.greet()  # Greeting the user
+        self.__checkForReminders()  # Checking for possible reminders set up for today
         self.__startListen()  # Starting listening for key input
 
 

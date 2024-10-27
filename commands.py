@@ -10,6 +10,19 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def setReminder(self, query: str):
+        pass  # UNDER DEVELOPMENT
+
+    def checkReminder(self):
+        output = gF.checkTimer()
+
+        if not output:
+            return output
+
+        self.speaker.speak("You have a reminder set for today sir!")
+        gF.remindTimer(f"Remember to {output}!")
+
+
     def setAlarm(self, query):
         output = gF.setAlarm(query)
         if not output:

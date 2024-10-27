@@ -9,8 +9,13 @@ import os
 import sys
 from bs4 import BeautifulSoup
 import openAppSites
+import reminder
 import JTime
 
+
+def checkTimer():
+    myRem = reminder.Reminder()
+    return myRem.checkForReminders()
 
 def extractTimeAlarm(query: str) -> [int, int, int]:
     hour, minute, second = 0, 0, 0
@@ -118,6 +123,10 @@ def setTimer(query: str) -> str:
 
     return outStr
 
+
+def remindTimer(output: str):
+    myTimer = JTime.Timer()
+    myTimer.setTimer(second=1, outStr=output)
 
 def terminate():
     sys.exit(0)
