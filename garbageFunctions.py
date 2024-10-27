@@ -60,8 +60,16 @@ def setAlarm(query: str) -> str | None:
     alarm = JTime.Alarm()
     hour, minute, second = extractTimeAlarm(query)
 
+    # Converting to military time
+    if "p.m." in query:
+        hour += 12
+
     if not alarm.setAlarm(hour, minute, second):
         return None
+
+    # Not returning minute if it is 0
+    if minute == 0:
+        return f"{hour} o clock"
 
     return f"{hour}:{minute}"
 

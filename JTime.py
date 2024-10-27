@@ -98,7 +98,7 @@ class Alarm:
 
         timer.setTimer(second=timerSec, outStr="Sir your alarm is going off!")
         del timer
-
+        print(f"Setting alarm for {hour}:{minute}")
         return True
 
 

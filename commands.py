@@ -13,10 +13,10 @@ class Commands:
     def setAlarm(self, query):
         output = gF.setAlarm(query)
         if not output:
-            self.speaker.speak("Sorry Sir, there was an error setting up the timer. Please make sure the timer is set for today!")
+            self.speaker.speak("Sorry Sir, there was an error setting up the timer. Please make sure the timer is set for today and not tomorrow!")
             return None
 
-        self.speaker.speak(f"Setting timer for {output}")
+        self.speaker.speak(f"Setting alarm at {output}")
 
 
     def setTimer(self, query):

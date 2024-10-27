@@ -14,11 +14,11 @@ class OpenAppSites:
 
     # Returns true if and only if the application's PATH is found
     def openApplication(self, app: str) -> bool:
-        for apps in Data.Details.applications:  # Looping through all the applications known in Data
+        for apps in Data.UniversalVariables.applications:  # Looping through all the applications known in Data
             if app != apps:  # If not found, move on to the next application
                 continue
 
-            self.applic.start(Data.Details.applications.get(apps))  # If found, start the application
+            self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application
             return True
 
         return False  # If not found, return False
@@ -27,7 +27,7 @@ class OpenAppSites:
     @staticmethod
     # Returns true if and only if the website's URL is found
     def openWebsite(website: str) -> bool:
-        for web in Data.Details.websites:  # Looping through all the websites known in Data
+        for web in Data.UniversalVariables.websites:  # Looping through all the websites known in Data
             if web != website:  # If not found, move on to the next website
                 continue
 
