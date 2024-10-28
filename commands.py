@@ -11,7 +11,14 @@ class Commands:
 
 
     def setReminder(self, query: str):
-        pass  # UNDER DEVELOPMENT
+        date = gF.setReminder(query)
+
+        if not date:
+            self.speaker.speak("Sorry sir, there was an error setting up the reminder! Please try again")
+            return
+
+        self.speaker.speak(f"Setting reminder on {date}")
+
 
     def checkReminder(self):
         output = gF.checkTimer()

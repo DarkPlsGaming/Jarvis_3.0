@@ -5,6 +5,7 @@ import json
 from email.errors import InvalidBase64CharactersDefect
 from urllib.request import urlopen
 import requests
+import datetime
 import os
 import sys
 from bs4 import BeautifulSoup
@@ -13,9 +14,52 @@ import reminder
 import JTime
 
 
+def extractDetails(query: str):
+    loc = query.find("on") + 3
+
+    # If no keyword
+    if loc < 0:
+        return None, None
+
+    # Getting date
+    date = ""
+    rem = ""
+    try:
+        while loc < len(query):
+            date += str(int(query[loc]))
+            loc += 1
+
+    # Getting reminder
+    except ValueError:
+        rem = ""
+        loc += 1
+        while loc < len(query):
+            rem += query[loc]
+            loc += 1
+
+
+    return f"{datetime.datetime.now().year}:{datetime.datetime.now().month}:{date}", rem
+
+
+def setReminder(query: str) -> str | None:
+    # Set a reminder on 69 January Play Minecraft
+    date, remind = extractDetails(query)
+
+    # Error setting up reminder
+    if not remind:
+        return None
+
+    myRem = reminder.Reminder()
+    myRem.setReminder(remind, date)
+
+    return f"{date}"
+
+
 def checkTimer():
     myRem = reminder.Reminder()
-    return myRem.checkForReminders()
+    output = myRem.checkForReminders()
+    del myRem
+    return output
 
 def extractTimeAlarm(query: str) -> [int, int, int]:
     hour, minute, second = 0, 0, 0
@@ -33,7 +77,7 @@ def extractTimeAlarm(query: str) -> [int, int, int]:
     timeStr = ""
 
     # Extracting time
-    while loc < len(query) and query[loc] != " ":
+    while loc < len(query) and query[loc] != " " and query[loc] != "p":
         timeStr += query[loc]
         loc += 1
 
@@ -112,11 +156,11 @@ def setTimer(query: str) -> str:
     outStr: str = ""
     if hour != 0:
         outStr += f"{hour} hours "
-    if second == 0:
-        outStr += "and "
+        if second == 0:
+            outStr += "and "
     if minute != 0:
         outStr += f"{minute} minutes "
-    if hour != 0 or minute != 0:
+    if (hour != 0 or minute != 0) and second != 0:
         outStr += "and "
     if second != 0:
         outStr += f"{second} seconds"
@@ -189,4 +233,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    extractTimeAlarm("set an alarm for 10:15")
+    print(setReminder("Set a reminder on 24 play minecraft"))
