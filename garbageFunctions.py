@@ -61,6 +61,7 @@ def checkTimer():
     del myRem
     return output
 
+
 def extractTimeAlarm(query: str) -> [int, int, int]:
     hour, minute, second = 0, 0, 0
 
@@ -68,6 +69,9 @@ def extractTimeAlarm(query: str) -> [int, int, int]:
     loc = query.find("at")
     if loc < 0:
         loc = query.find("for")
+
+    if loc < 0:
+        loc = query.find("on")
 
     # Finding starting of time
     while query[loc] != " ":
@@ -103,7 +107,7 @@ def extractTimeAlarm(query: str) -> [int, int, int]:
 
 
 def setAlarm(query: str) -> str | None:
-    if "at" not in query and "for" not in query:
+    if "at" not in query and "for" not in query and "on" not in query:
         return None
 
     alarm = JTime.Alarm()
@@ -233,4 +237,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(setReminder("Set a reminder on 24 play minecraft"))
+    print(setAlarm("Set an alarm on 20:30"))

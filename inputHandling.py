@@ -13,7 +13,7 @@ class InputListener:
 
 
     # Private Method
-    # noinspection PyBroadException
+    # noinspection PyBroadException,PyUnresolvedReferences
     def __recognizeAudio(self, audio):
         try:
             query: str = self.recognizer.recognize_google(audio, language="en-in")  # Recognizing using google
