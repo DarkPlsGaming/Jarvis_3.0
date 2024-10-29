@@ -7,9 +7,9 @@ class FileHandler:
         self.path: str = path
 
 
-    def writeFile(self, data, *, jsonOut: bool = False) -> int | None:
+    def writeFile(self, data, *, jsonOut: bool = False, openMode: str = "w") -> int | None:
         try:
-            with open(self.path, "w") as file:
+            with open(self.path, f"{openMode}") as file:
                 if jsonOut:
                     json.dump(data, file, indent=4)
                 else:

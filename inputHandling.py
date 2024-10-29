@@ -28,7 +28,7 @@ class InputListener:
     def startListen(self) -> str:
         # Input
         with sr.Microphone() as source:
-            self.recognizer.pause_threshold = 1
+            self.recognizer.pause_threshold = 2
             audio = self.recognizer.listen(source)
 
         # Recognition

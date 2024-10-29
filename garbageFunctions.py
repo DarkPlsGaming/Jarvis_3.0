@@ -14,17 +14,46 @@ import reminder
 import JTime
 
 
+def isLeapYear(year: int, *, outForm="bool") -> bool | int:
+    if outForm == "int":
+        return 29 if year % 4 == 0 else 28
+    return True if year % 4 == 0 else False
+
+
+def getDays(year: int, month: int) -> int:
+    return isLeapYear(year, outForm="int") if month == 2 else 30 if month % 2 == 0 else 31
+
+
+def getTomorrow(*, year:int = datetime.datetime.now().year, month:int = datetime.datetime.now().month, date:int = datetime.datetime.now().day) -> str:
+    # Checking date                     Special Case of Feb                 # 29th of any month              30th of special months
+    if date < 28 or (date == 28 and (month != 2 or isLeapYear(year))) or (date == 29 and month != 2) or (date == 30 and getDays(year, month) == 31):
+        return f"{year}:{month}:{date+1}"
+
+    # Checking month
+    if month < 12:
+        return f"{year}:{month+1}:1"
+
+    # Updating year
+    return f"{year+1}:1:1"
+
+
 def extractDetails(query: str):
+    tmrKey = query.find("tomorrow") # Checking for tomorrow key word
     loc = query.find("on") + 3
 
     # If no keyword
-    if loc < 0:
+    if loc < 0 and tmrKey < 0:
         return None, None
 
     # Getting date
     date = ""
     rem = ""
     try:
+        if tmrKey > -1:  # In case of keyword tomorrow
+            date = getTomorrow()
+            loc = tmrKey + 8
+            raise ValueError
+
         while loc < len(query):
             date += str(int(query[loc]))
             loc += 1
@@ -37,8 +66,7 @@ def extractDetails(query: str):
             rem += query[loc]
             loc += 1
 
-
-    return f"{datetime.datetime.now().year}:{datetime.datetime.now().month}:{date}", rem
+    return [date, rem] if tmrKey > -1 else [f"{datetime.datetime.now().year}:{datetime.datetime.now().month}:{date}", rem]
 
 
 def setReminder(query: str) -> str | None:
@@ -237,4 +265,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(setAlarm("Set an alarm on 20:30"))
+    print(extractDetails("Set a reminder for tomorrow play minecraft"))
