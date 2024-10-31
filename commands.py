@@ -10,6 +10,21 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def wow(self):
+        gF.mao()
+        self.speaker.speak("""\
+        It's mao, not wow, go and correct your english first. He was a very kind (especially to farmers) 
+        and talented person was was very slim and loved all his wifes. He also had very long and curly hair. He saved 80 million
+        farmers from their miseries and also invented the computer which was his side project in France. He did not fail any of his exams
+        and that was a lie made by his enemies to make him look bad. He loved all religions and was a pacifist, unfortunately his
+        reincarnation Farhan became bad and ugly and bold and quite short, and starting spending 6 hours in Prakash everyday.
+        He also now spends rest of his time watching anime and sleeping on anime waifu pillows.""")
+
+
+    def mao(self):
+        gF.mao()
+        self.speaker.speak("Mao, also popularly known as Hilal Sir was a great man who brought peace to 80 million farmers")
+
     def setReminder(self, query: str):
         date = gF.setReminder(query)
 
@@ -69,3 +84,8 @@ class Commands:
             self.speaker.speak("Sorry, the application was not found!")
             return None
         self.speaker.speak(f"Opening {app}")
+
+
+if __name__ == "__main__":
+    command = Commands()
+    command.wow()

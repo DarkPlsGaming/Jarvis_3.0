@@ -14,6 +14,14 @@ import reminder
 import JTime
 
 
+def mao():
+    openMao = openAppSites.OpenAppSites()
+
+    openMao.openWebsite("mao")
+
+    del openMao
+
+
 def isLeapYear(year: int, *, outForm="bool") -> bool | int:
     if outForm == "int":
         return 29 if year % 4 == 0 else 28
@@ -265,4 +273,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(extractDetails("Set a reminder for tomorrow play minecraft"))
+    mao()

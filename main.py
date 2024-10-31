@@ -30,7 +30,7 @@ class InitJarvis:
 
 
     def handleQuery(self, query: str):
-        # print(query)
+        print(query)
         self.query = query
         self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file
 

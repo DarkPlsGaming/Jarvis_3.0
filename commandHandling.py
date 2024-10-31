@@ -12,6 +12,13 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if "wow" in query:
+            self.command.wow()
+
+
+        if "mau" in query:
+            self.command.mao()
+
         if "set" in query and "reminder" in query:
             self.command.setReminder(query)  # UNDER DEVELOPMENT
 

@@ -6,7 +6,8 @@ websites = {  # All the websites and their respective URLs that is required by t
     "hack the box": "https://academy.hackthebox.com/dashboard",
     "whats app": "https://web.whatsapp.com/",
     "google": "https://www.google.com",
-    "chrome": "https://www.google.com"
+    "chrome": "https://www.google.com",
+    "mao": "https://en.wikipedia.org/wiki/Mao_Zedong"
 }
 
 
