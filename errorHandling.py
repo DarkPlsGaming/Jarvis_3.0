@@ -43,11 +43,9 @@ class ErrorHandling:
         # In case of module not found error
         if type(err) == ModuleNotFoundError:
             insMod = installation.InstallPackages()
-            print(err)
             insMod.install()  # Installing necessary modules
             del insMod
             return
 
-        # To be appended by Lord Lafiz
-
-        # self.__saveOutput(err, query)
+        # Specific Error Handling to be appended by Lord Lafiz
+        self.__saveOutput(err, query)

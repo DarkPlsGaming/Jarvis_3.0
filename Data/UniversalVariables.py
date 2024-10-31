@@ -22,6 +22,7 @@ applications = {  # All the applications and their respective PATHs that is requ
 }
 
 
+games = ["minecraft", "roblox", "GrandTheftAutoV"]  # Note: Name is case-sensitive
 greetPhrases = {
-    # To be filled in by Lafiz. Please make sure to complete this function in garbageFunctions.py -> getGreetPhrase()
+    # To be filled in by Lord Lafiz. Please make sure to complete this function in garbageFunctions.py -> getGreetPhrase()
 }

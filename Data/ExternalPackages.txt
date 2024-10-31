@@ -5,3 +5,4 @@ speechRecognition
 pynput
 pywinauto
 pyttsx3
+psutil

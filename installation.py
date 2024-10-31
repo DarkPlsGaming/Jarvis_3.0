@@ -62,6 +62,7 @@ class InstallPackages:
             print("Starting Installation Process..")
             self.__installPackages()
             print("Package installation was successful!")
+            input("You will have to restart J3. Press Enter to continue...")
 
         except Exception as e:
             print("Sorry an error occurred while installing the packages. Please contact the software developer to resolve this issue.")
