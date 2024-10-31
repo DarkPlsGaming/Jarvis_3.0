@@ -37,6 +37,7 @@ class InitJarvis:
 
     def start(self):
         try:
+            import openai
             self.commands.greet()  # Greeting the user
             self.__checkForReminders()  # Checking for possible reminders set up for today
             self.__startListen()  # Starting listening for key input

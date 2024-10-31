@@ -4,6 +4,7 @@
 import traceback
 import fileHandling
 import datetime
+import installation
 
 
 class Error:
@@ -32,13 +33,21 @@ class ErrorHandling:
         self.fileOutput.writeFile(output, openMode="a")
 
 
-    def handleError(self, errorTraceback, err, query):
+    def handleError(self, errorTraceback, err: Exception, query):
         tb = traceback.extract_tb(errorTraceback)
 
         for file, line, function, code in tb:
             self.errors.append(Error(file, line, function, code))
 
         # Handle specific Errors
-        # To be done by Lord Lafiz
+        # In case of module not found error
+        if type(err) == ModuleNotFoundError:
+            insMod = installation.InstallPackages()
+            print(err)
+            insMod.install()  # Installing necessary modules
+            del insMod
+            return
 
-        self.__saveOutput(err, query)
+        # To be appended by Lord Lafiz
+
+        # self.__saveOutput(err, query)
