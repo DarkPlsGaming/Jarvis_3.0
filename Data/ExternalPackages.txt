@@ -1,0 +1,7 @@
+requests
+bs4
+PyAudio
+speechRecognition
+pynput
+pywinauto
+pyttsx3

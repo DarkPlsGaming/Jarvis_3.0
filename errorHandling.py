@@ -20,8 +20,9 @@ class ErrorHandling:
         self.errors = []
 
 
-    def __saveOutput(self, err):
+    def __saveOutput(self, err, query):
         output = f"Error log on: {datetime.datetime.now().strftime("%D : %H:%M")}\n"
+        output += f"User Query:{query}\n"
         output += f"The following error occurred: {err}\n\n"
 
         for error in self.errors:
@@ -31,7 +32,7 @@ class ErrorHandling:
         self.fileOutput.writeFile(output, openMode="a")
 
 
-    def handleError(self, errorTraceback, err):
+    def handleError(self, errorTraceback, err, query):
         tb = traceback.extract_tb(errorTraceback)
 
         for file, line, function, code in tb:
@@ -40,4 +41,4 @@ class ErrorHandling:
         # Handle specific Errors
         # To be done by Lord Lafiz
 
-        self.__saveOutput(err)
+        self.__saveOutput(err, query)

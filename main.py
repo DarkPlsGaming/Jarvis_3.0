@@ -30,7 +30,7 @@ class InitJarvis:
 
 
     def handleQuery(self, query: str):
-        print(query)
+        # print(query)
         self.query = query
         self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file
 
@@ -42,7 +42,7 @@ class InitJarvis:
             self.__startListen()  # Starting listening for key input
 
         except Exception as e:  # Error Handling
-            self.errorHandler.handleError(e.__traceback__, e)
+            self.errorHandler.handleError(e.__traceback__, e, self.query)
 
 if __name__ == "__main__":
     jarvis = InitJarvis()

@@ -2,7 +2,6 @@
 
 # Imports
 import json
-from email.errors import InvalidBase64CharactersDefect
 from urllib.request import urlopen
 import requests
 import datetime
@@ -45,6 +44,43 @@ def getTomorrow(*, year:int = datetime.datetime.now().year, month:int = datetime
     return f"{year+1}:1:1"
 
 
+def getMonth(month: str) -> int | str:
+    match month:
+        case 'january':
+            return 1
+        case 'february':
+            return 2
+        case 'march':
+            return 3
+        case 'april':
+            return 4
+        case 'may':
+            return 5
+        case 'june':
+            return 6
+        case 'july':
+            return 7
+        case 'august':
+            return 8
+        case 'september':
+            return 9
+        case 'october':
+            return 10
+        case 'november':
+            return 11
+        case 'december':
+            return 12
+        case _:
+            return month
+
+
+def increaseMonth(month: int, threshold: int):
+    for i in range(threshold):
+        month = (month % 12) + 1
+
+    return month
+
+
 def extractDetails(query: str):
     tmrKey = query.find("tomorrow") # Checking for tomorrow key word
     loc = query.find("on") + 3
@@ -55,6 +91,8 @@ def extractDetails(query: str):
 
     # Getting date
     date = ""
+    month = ""
+    year = datetime.datetime.now().year
     rem = ""
     try:
         if tmrKey > -1:  # In case of keyword tomorrow
@@ -62,19 +100,41 @@ def extractDetails(query: str):
             loc = tmrKey + 8
             raise ValueError
 
-        while loc < len(query):
-            date += str(int(query[loc]))
+        while loc < len(query) and query[loc] != " ":  # Getting date
+            date += query[loc]
             loc += 1
+
+        # Checking for month
+        loc += 1
+        while loc < len(query) and query[loc] != " ":
+            month += query[loc]
+            loc += 1
+
+        month = getMonth(month.lower())
+        if type(month) is str:  # If no month
+            rem += f"{month} ".capitalize()
+            month = datetime.datetime.now().month
+
+            # If date is past
+            if int(date) < datetime.datetime.now().day:
+                month = increaseMonth(month, 1)
+            raise ValueError
+
+        # If previous month or previous date, set for next year
+        if month < datetime.datetime.now().month or (month == datetime.datetime.now().month and int(date) < datetime.datetime.now().day):
+            year += 1
+
+        raise ValueError
 
     # Getting reminder
     except ValueError:
-        rem = ""
         loc += 1
+
         while loc < len(query):
             rem += query[loc]
             loc += 1
 
-    return [date, rem] if tmrKey > -1 else [f"{datetime.datetime.now().year}:{datetime.datetime.now().month}:{date}", rem]
+    return [date, rem] if tmrKey > -1 else [f"{year}:{month}:{date}", rem]
 
 
 def setReminder(query: str) -> str | None:
@@ -165,7 +225,7 @@ def setAlarm(query: str) -> str | None:
 
 def extractTime(query, time: str) -> int | None:
     if time != "hour" and time != "minute" and time != "second":
-        raise InvalidBase64CharactersDefect
+        raise ValueError("That's the wrong value idiot!")
 
     pos = query.find(f"{time}")
     timeNeed = 0
@@ -273,4 +333,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    mao()
+    print(extractDetails("Set a reminder on 30 October Play Minecraft"))
