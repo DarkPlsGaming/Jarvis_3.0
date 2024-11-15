@@ -227,6 +227,10 @@ def extractTime(query, time: str) -> int | None:
     if time != "hour" and time != "minute" and time != "second":
         raise ValueError("That's the wrong value idiot!")
 
+    # In case of half an hour:
+    if "half" in query and "hour" in query:
+        return 0 if (time == "hour" or time == "second") else 30
+
     pos = query.find(f"{time}")
     timeNeed = 0
     if pos != -1:
@@ -256,7 +260,7 @@ def setTimer(query: str) -> str:
     outStr: str = ""
     if hour != 0:
         outStr += f"{hour} hours "
-        if second == 0:
+        if second == 0 and minute != 0:
             outStr += "and "
     if minute != 0:
         outStr += f"{minute} minutes "
@@ -271,6 +275,7 @@ def setTimer(query: str) -> str:
 def remindTimer(output: str):
     myTimer = JTime.Timer()
     myTimer.setTimer(second=1, outStr=output)
+
 
 def terminate():
     sys.exit(0)

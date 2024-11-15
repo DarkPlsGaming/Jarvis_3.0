@@ -22,7 +22,7 @@ class ErrorHandling:
 
 
     def __saveOutput(self, err, query):
-        output = f"Error log on: {datetime.datetime.now().strftime("%D : %H:%M")}\n"
+        output = f"Error log on: {datetime.datetime.now().strftime('%D : %H:%M')}\n"
         output += f"User Query:{query}\n"
         output += f"The following error occurred: {err}\n\n"
 

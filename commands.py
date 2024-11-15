@@ -14,10 +14,10 @@ class Commands:
         gF.mao()
         self.speaker.speak("""\
         It's mao, not wow, go and correct your english first. He was a very kind (especially to farmers) 
-        and talented person was was very slim and loved all his wifes. He also had very long and curly hair. He saved 80 million
+        and talented person. He was very slim and loved all his wives. He also had very long and curly hair. He saved 80 million
         farmers from their miseries and also invented the computer which was his side project in France. He did not fail any of his exams
         and that was a lie made by his enemies to make him look bad. He loved all religions and was a pacifist, unfortunately his
-        reincarnation Farhan became bad and ugly and bold and quite short, and starting spending 6 hours in Prakash everyday.
+        descendant Farhan became bad and ugly and bold and quite short, and starting spending 6 hours in Prakash everyday.
         He also now spends rest of his time watching anime and sleeping on anime waifu pillows.""")
 
 
