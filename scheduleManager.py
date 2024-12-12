@@ -26,12 +26,13 @@ class ScheduleManager:
 
     def __giveIntro(self):
         self.speaker.speak("Starting today's Schedule, Sir!")
-        self.speaker.speak("To pause the schedule at any time, hit right alt button!")
+        self.speaker.speak("To pause the schedule at any time, you may hit the right alt button!")
 
 
     def __giveOutro(self):
         self.speaker.speak("Today's schedule has ended. Good work, Sir!")
         del self.speaker
+        del self.timer
 
 
     def __speakSchedule(self, schedule):
@@ -50,6 +51,7 @@ class ScheduleManager:
         schedule = threading.Thread(target=self.initSchedule)
         schedule.daemon = True
         schedule.start()
+
 
 if __name__ == "__main__":
     sMan = ScheduleManager()
