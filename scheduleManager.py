@@ -2,6 +2,7 @@ import Data.schedule
 import outputHandling as oH
 from garbageFunctions import extractTime
 import JTime
+import threading
 
 
 class ScheduleManager:
@@ -37,13 +38,18 @@ class ScheduleManager:
         self.speaker.speak(f"Sir, it's time to do {schedule} for {self.schedule[schedule]} time!")
 
 
-    def startSchedule(self):
+    def initSchedule(self):
         self.__giveIntro()
         for schedule in self.schedule:
             self.__speakSchedule(schedule)
             self.__setTimer(self.schedule[schedule])
         self.__giveOutro()
 
+
+    def startSchedule(self):
+        schedule = threading.Thread(target=self.initSchedule)
+        schedule.daemon = True
+        schedule.start()
 
 if __name__ == "__main__":
     sMan = ScheduleManager()

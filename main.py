@@ -45,8 +45,8 @@ class InitJarvis:
         try:
             self.commands.greet()  # Greeting the user
             self.__checkForReminders()  # Checking for possible reminders set up for today
-            self.__startListen()  # Starting listening for key input
             self.__startTodaySchedule()  # Starting today's schedule
+            self.__startListen()  # Starting listening for key input
 
 
         except Exception as e:  # Error Handling
