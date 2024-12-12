@@ -6,6 +6,7 @@ import keyboardHandling
 import inputHandling
 import commandHandling
 import errorHandling
+import scheduleManager
 
 
 class InitJarvis:
@@ -16,6 +17,7 @@ class InitJarvis:
         self.keyHandler = keyboardHandling.KeyboardHandler()  # Initializing for listening to user key
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
+        self.schManager = scheduleManager.ScheduleManager()
         self.query = None
 
 
@@ -29,6 +31,10 @@ class InitJarvis:
         self.commands.checkReminder()
 
 
+    def __startTodaySchedule(self):
+        self.schManager.startSchedule()
+
+
     def handleQuery(self, query: str):
         # print(query)
         self.query = query
@@ -40,6 +46,8 @@ class InitJarvis:
             self.commands.greet()  # Greeting the user
             self.__checkForReminders()  # Checking for possible reminders set up for today
             self.__startListen()  # Starting listening for key input
+            self.__startTodaySchedule()  # Starting today's schedule
+
 
         except Exception as e:  # Error Handling
             self.errorHandler.handleError(e.__traceback__, e, self.query)
