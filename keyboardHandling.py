@@ -12,6 +12,7 @@ class KeyboardHandler:
 
 
     def __press_on(self, key):
+        # print(self.targetKey, str(key))
         if str(key) == self.targetKey:  # If target key is pressed
             raise KeyboardInterrupt  # Break out of key listening
 
@@ -30,5 +31,5 @@ class KeyboardHandler:
 
 if __name__ == "__main__":
     kH = KeyboardHandler()
-    if kH.listenForKey("Key.ctrl_l"):
+    if kH.listenForKey("Key.alt_gr"):
         print("hehe boi")

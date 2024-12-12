@@ -10,6 +10,7 @@ class Timer:
     def __init__(self):
         self.inpHandler = keyboardHandling.KeyboardHandler()
         self.remindLoop = False  # ----
+        self.pause = False
 
 
     def __checkRemindLoopEnd(self) -> None:
@@ -22,13 +23,24 @@ class Timer:
         self.remindLoop = True
         threading.Thread(target=self.__checkRemindLoopEnd).start()
 
-        speaker = outputHandling.Speaker()
+        speaker = outputHandling.Speaker()  # Speaker is a local object since otherwise, you get unexpected results!
 
         while self.remindLoop is True:
             speaker.speak(outStr)
 
         del speaker
         return None
+
+
+    def __checkPause(self):
+        self.inpHandler.listenForKey("Key.alt_gr")
+        self.pause = not self.pause
+
+        speaker = outputHandling.Speaker()
+        speaker.speak("Pausing the Schedule") if self.pause is True else speaker.speak("Resuming the Schedule..")
+        del speaker
+
+        self.__checkPause()
 
 
     def __setTimer(self, outStr, hour: int = 0, minute: int = 0, second: int = 0) -> None:
@@ -43,6 +55,18 @@ class Timer:
         timer = threading.Thread(target=self.__setTimer, args=[outStr, hour, minute, second])
         timer.daemon = True
         timer.start()
+
+
+    def setSmartTimer(self, hour: int = 0, minute: int = 0, second: int = 0):
+        checkingPause = threading.Thread(target=self.__checkPause)
+        checkingPause.daemon = True
+        checkingPause.start()
+
+        for i in range((hour*60*60)+(minute*60)+second):
+            time.sleep(1)
+
+            while self.pause:
+                time.sleep(1)
 
 
 class Alarm:
@@ -103,5 +127,5 @@ class Alarm:
 
 
 if __name__ == "__main__":
-    myAlarm = Alarm()
-    myAlarm.setAlarm(22, 3, 0)
+    myAlarm = Timer()
+    myAlarm.setSmartTimer(second=5)

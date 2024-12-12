@@ -338,4 +338,4 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(extractDetails("Set a reminder on 30 October Play Minecraft"))
+    print(extractTime("Set a timer for 2 hours", time="hour"))
