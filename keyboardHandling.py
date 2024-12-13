@@ -2,6 +2,7 @@
 
 # Imports
 import pynput.keyboard
+from pynput.keyboard import Key
 
 
 # Main Class
@@ -9,6 +10,7 @@ class KeyboardHandler:
     def __init__(self):  # source: str = "timer"):  # Source stands for from which file is this class being used
         self.targetKey = None
         self.listener = pynput.keyboard.Listener  # Initializing a keyboard listener object
+        self.controller = pynput.keyboard.Controller()
 
 
     def __press_on(self, key):
@@ -28,8 +30,16 @@ class KeyboardHandler:
         return 1
 
 
+    def pressKey(self, targetKey: str | Key):
+        if targetKey == "Key.alt_gr":
+            targetKey = Key.alt_gr
+
+        self.controller.press(targetKey)
+        self.controller.release(targetKey)
+
 
 if __name__ == "__main__":
     kH = KeyboardHandler()
-    if kH.listenForKey("Key.alt_gr"):
-        print("hehe boi")
+    kH.pressKey("l")
+    # if kH.listenForKey("Key.alt_gr"):
+    #     print("hehe boi")

@@ -11,6 +11,7 @@ class Timer:
         self.inpHandler = keyboardHandling.KeyboardHandler()
         self.remindLoop = False  # ----
         self.pause = False
+        self.killPause = False
 
 
     def __checkRemindLoopEnd(self) -> None:
@@ -34,13 +35,22 @@ class Timer:
 
     def __checkPause(self):
         self.inpHandler.listenForKey("Key.alt_gr")
+        if self.killPause is True:  # Killing off the previous object's instance
+            return
         self.pause = not self.pause
+
 
         speaker = outputHandling.Speaker()
         speaker.speak("Pausing the Schedule") if self.pause is True else speaker.speak("Resuming the Schedule..")
         del speaker
 
         self.__checkPause()
+
+
+    def __killPrevPauseThread(self):
+        self.killPause = True
+        self.inpHandler.pressKey("Key.alt_gr")
+        self.killPause = False
 
 
     def __setTimer(self, outStr, hour: int = 0, minute: int = 0, second: int = 0) -> None:
@@ -67,6 +77,8 @@ class Timer:
 
             while self.pause:
                 time.sleep(1)
+
+        self.__killPrevPauseThread()
 
 
 class Alarm:
