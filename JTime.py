@@ -12,6 +12,7 @@ class Timer:
         self.remindLoop = False  # ----
         self.pause = False
         self.killPause = False
+        self.skip = False
 
 
     def __checkRemindLoopEnd(self) -> None:
@@ -67,6 +68,10 @@ class Timer:
         timer.start()
 
 
+    def endSmartTimer(self):
+        self.skip = True  # Variable is changed to False automatically
+
+
     def setSmartTimer(self, hour: int = 0, minute: int = 0, second: int = 0):
         checkingPause = threading.Thread(target=self.__checkPause)
         checkingPause.daemon = True
@@ -75,10 +80,16 @@ class Timer:
         for i in range((hour*60*60)+(minute*60)+second):
             time.sleep(1)
 
+            if self.skip:
+                self.skip = False
+                break
+
             while self.pause:
+                if self.skip:
+                    break
                 time.sleep(1)
 
-        self.__killPrevPauseThread()
+        self.__killPrevPauseThread()  # Killing previous pause thread to avoid bugs!
 
 
 class Alarm:

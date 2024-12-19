@@ -17,7 +17,7 @@ class InitJarvis:
         self.keyHandler = keyboardHandling.KeyboardHandler()  # Initializing for listening to user key
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
-        self.schManager = scheduleManager.ScheduleManager()
+        self.schManager = scheduleManager.ScheduleManager()  # Initialized for Schedule Handling
         self.query = None
 
 

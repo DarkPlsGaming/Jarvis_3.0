@@ -39,7 +39,7 @@ class ScheduleManager:
         self.speaker.speak(f"Sir, it's time to do {schedule} for {self.schedule[schedule]} time!")
 
 
-    def initSchedule(self):
+    def __initSchedule(self):
         self.__giveIntro()
         for schedule in self.schedule:
             self.__speakSchedule(schedule)
@@ -47,8 +47,12 @@ class ScheduleManager:
         self.__giveOutro()
 
 
+    def skipTask(self):
+        self.timer.endSmartTimer()
+
+
     def startSchedule(self):
-        schedule = threading.Thread(target=self.initSchedule)
+        schedule = threading.Thread(target=self.__initSchedule)
         schedule.daemon = True
         schedule.start()
 

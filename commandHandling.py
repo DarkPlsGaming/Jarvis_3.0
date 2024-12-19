@@ -15,9 +15,11 @@ class CommandHandling:
         if "wow" in query:
             self.command.wow()
 
-
         if "mau" in query:
             self.command.mao()
+
+        if "skip" in query and ("schedule" in query or "task" in query):
+            self.command.skipTask()
 
         if "set" in query and "reminder" in query:
             self.command.setReminder(query)  # UNDER DEVELOPMENT
