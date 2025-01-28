@@ -18,3 +18,27 @@ In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\site-package
 
 
 
+Error log on: 01/16/25 : 20:17
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\J3.pyw Function: start on 45 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\commands.py Function: greet on 81 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/24/25 : 14:04
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\J3.pyw Function: start on 45 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\commands.py Function: greet on 81 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\PycharmProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+

@@ -72,7 +72,7 @@ class Timer:
         self.skip = True  # Variable is changed to False automatically
 
 
-    def setSmartTimer(self, hour: int = 0, minute: int = 0, second: int = 0):
+    def setSmartTimer(self, hour: int = 0, minute: int = 0, second: int = 0, *, outStr="Timer has ended!"):
         checkingPause = threading.Thread(target=self.__checkPause)
         checkingPause.daemon = True
         checkingPause.start()
@@ -90,6 +90,7 @@ class Timer:
                 time.sleep(1)
 
         self.__killPrevPauseThread()  # Killing previous pause thread to avoid bugs!
+        self.__remind(outStr)
 
 
 class Alarm:

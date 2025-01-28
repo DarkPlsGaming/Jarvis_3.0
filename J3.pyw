@@ -11,13 +11,12 @@ import scheduleManager
 
 class InitJarvis:
     def __init__(self):
-        # noinspection GrazieInspection
         self.errorHandler = errorHandling.ErrorHandling()
         self.commands = commands.Commands()  # Initializing commands for the greet() command
         self.keyHandler = keyboardHandling.KeyboardHandler()  # Initializing for listening to user key
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
-        self.schManager = scheduleManager.ScheduleManager()
+        self.schManager = scheduleManager.ScheduleManager()  # Initialized for Schedule Handling
         self.query = None
 
 

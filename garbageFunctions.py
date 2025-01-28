@@ -328,9 +328,9 @@ def getTemperature():
     url = f"https://www.google.com/search?q={'Temperature in' + getLocation()}"
     r = requests.get(url)
     data = BeautifulSoup(r.text, "html.parser")
-    temp = data.find("div", class_="BNeawe").text
+    temp = data.find("div", class_="BNeawe")
 
-    return temp
+    return temp.text if temp else "difficult to find! Presently, there are some issues with Google that are not enabling me to find the temperature. Very sorry for the inconvenience!"
 
 
 def getGreetPhrase():

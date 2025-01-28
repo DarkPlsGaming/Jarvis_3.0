@@ -14,6 +14,7 @@ class ScheduleManager:
         self.schedule = self.__loadSchedule()
         self.timer = JTime.Timer()
         self.speaker = oH.Speaker()
+        self.currentSchedule = None
 
 
     def __setTimer(self, query):
@@ -21,7 +22,7 @@ class ScheduleManager:
         hour = extractTime(query, "hour")
         minute = extractTime(query, "minute")
         second = extractTime(query, "second")
-        self.timer.setSmartTimer(hour, minute, second)
+        self.timer.setSmartTimer(hour, minute, second, outStr=f"Sir, task {self.currentSchedule} has ended!")
 
 
     def __giveIntro(self):
@@ -40,8 +41,12 @@ class ScheduleManager:
 
 
     def __initSchedule(self):
+        if not self.schedule:
+            self.speaker.speak("There is no schedule set for today!")
+            return
         self.__giveIntro()
         for schedule in self.schedule:
+            self.currentSchedule = schedule
             self.__speakSchedule(schedule)
             self.__setTimer(self.schedule[schedule])
         self.__giveOutro()
@@ -53,7 +58,7 @@ class ScheduleManager:
 
     def startSchedule(self):
         schedule = threading.Thread(target=self.__initSchedule)
-        schedule.daemon = True
+        # schedule.daemon = True
         schedule.start()
 
 

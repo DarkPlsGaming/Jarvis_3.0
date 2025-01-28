@@ -45,6 +45,6 @@ class FileHandler:
 
 
 if __name__ == "__main__":
-    fh = FileHandler("test.txt")
+    fh = FileHandler("Data/reminders.json")
 
-    print(fh.readFile())
+    fh.writeFile({"a": "b"}, jsonOut=True, openMode='a')
