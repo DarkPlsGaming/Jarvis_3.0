@@ -1,0 +1,67 @@
+import Data.schedule
+import outputHandling as oH
+from garbageFunctions import extractTime
+import JTime
+import threading
+
+
+class ScheduleManager:
+    @staticmethod
+    def __loadSchedule():
+        return Data.schedule.todaySchedule if Data.schedule.todaySchedule else Data.schedule.defaultSchedule
+
+    def __init__(self):
+        self.schedule = self.__loadSchedule()
+        self.timer = JTime.Timer()
+        self.speaker = oH.Speaker()
+        self.currentSchedule = None
+
+
+    def __setTimer(self, query):
+        query = query.lower()
+        hour = extractTime(query, "hour")
+        minute = extractTime(query, "minute")
+        second = extractTime(query, "second")
+        self.timer.setSmartTimer(hour, minute, second, outStr=f"Sir, task {self.currentSchedule} has ended!")
+
+
+    def __giveIntro(self):
+        self.speaker.speak("Starting today's Schedule, Sir!")
+        self.speaker.speak("To pause the schedule at any time, you may hit the right alt button!")
+
+
+    def __giveOutro(self):
+        self.speaker.speak("Today's schedule has ended. Good work, Sir!")
+        del self.speaker
+        del self.timer
+
+
+    def __speakSchedule(self, schedule):
+        self.speaker.speak(f"Sir, it's time to do {schedule} for {self.schedule[schedule]} time!")
+
+
+    def __initSchedule(self):
+        if not self.schedule:
+            self.speaker.speak("There is no schedule set for today!")
+            return
+        self.__giveIntro()
+        for schedule in self.schedule:
+            self.currentSchedule = schedule
+            self.__speakSchedule(schedule)
+            self.__setTimer(self.schedule[schedule])
+        self.__giveOutro()
+
+
+    def skipTask(self):
+        self.timer.endSmartTimer()
+
+
+    def startSchedule(self):
+        schedule = threading.Thread(target=self.__initSchedule)
+        # schedule.daemon = True
+        schedule.start()
+
+
+if __name__ == "__main__":
+    sMan = ScheduleManager()
+    sMan.startSchedule()

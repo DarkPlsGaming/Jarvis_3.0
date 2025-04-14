@@ -34,6 +34,10 @@ class Commands:
         gF.mao()
         self.speaker.speak("Mao, also popularly known as Hilal Sir was a great man who brought peace to 80 million farmers")
 
+
+    def skipTask(self):
+        pass
+
     def setReminder(self, query: str):
         date = gF.setReminder(query)
 
