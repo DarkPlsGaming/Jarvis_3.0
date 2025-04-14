@@ -5,6 +5,7 @@ import traceback
 import fileHandling
 import datetime
 import installation
+import sys
 
 
 class Error:
@@ -45,7 +46,7 @@ class ErrorHandling:
             insMod = installation.InstallPackages()
             insMod.install()  # Installing necessary modules
             del insMod
-            return
+            sys.exit(0)
 
         # Specific Error Handling to be appended by Lord Lafiz
         self.__saveOutput(err, query)

@@ -1,11 +1,16 @@
-# This file is the main structure of Jarvis 3.0
+# This file is the main structure of Jarvis 3.0 and runs in background
 
-# Inputs
-import commands
-import keyboardHandling
-import inputHandling
-import commandHandling
+# Importing Error Handling file
 import errorHandling
+
+# Checking for external packages
+try:
+    import commands
+    import keyboardHandling
+    import inputHandling
+    import commandHandling
+except Exception as e:  # Error Handling
+    errorHandling.ErrorHandling().handleError(e.__traceback__, e, '')  # Installing packages
 
 
 class InitJarvis:
@@ -18,20 +23,19 @@ class InitJarvis:
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
         self.query = None
 
-
     def __startListen(self):  # Listening for particular user key for activation
         while True:
-            if self.keyHandler.listenForKey("Key.ctrl_r") == 1:  # When key is pressed
-                self.handleQuery(self.inpHandler.startListen())  # Starting voice input
+            if self.keyHandler.listenForKey("Key.ctrl_r") == 1:  # When right control key is pressed
+                self.handleQuery(self.inpHandler.startListen())  # Starting voice input and processing it
 
 
     def __checkForReminders(self):
-        self.commands.checkReminder()
+        self.commands.checkReminder()  # Checks for any reminders set for today
 
 
     def handleQuery(self, query: str):
         # print(query)
-        self.query = query
+        self.query = query  # Setting query
         self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file
 
 

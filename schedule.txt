@@ -1,0 +1,5 @@
+Holiday:
+4 hours: Study 2 subjects (2 hour each)
+2 hours: C++
+2 hours: Python
+2 hours: Cybersecurity

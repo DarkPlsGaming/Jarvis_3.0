@@ -328,8 +328,10 @@ def getTemperature():
     url = f"https://www.google.com/search?q={'Temperature in' + getLocation()}"
     r = requests.get(url)
     data = BeautifulSoup(r.text, "html.parser")
-    temp = data.find("div", class_="BNeawe").text
-
+    try:
+        temp = data.find("div", class_="BNeawe").text
+    except Exception:
+        temp = "too difficult for me to find, sorry!"
     return temp
 
 

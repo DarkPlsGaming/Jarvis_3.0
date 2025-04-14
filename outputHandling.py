@@ -21,5 +21,5 @@ class Speaker:
 
 if __name__ == "__main__":
     speaker = Speaker()
-    speaker.speak("hehe boi it's me mar- i mean Jarvis")
+    speaker.speak("test")
     del speaker

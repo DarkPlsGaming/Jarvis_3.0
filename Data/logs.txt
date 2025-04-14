@@ -18,3 +18,241 @@ In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\site-package
 
 
 
+Error log on: 11/28/24 : 14:29
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/02/25 : 18:17
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/16/25 : 17:28
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/19/25 : 22:12
+User Query:None
+The following error occurred: <urlopen error [Errno 11001] getaddrinfo failed>
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 328 Code: url = f"https://www.google.com/search?q={'Temperature in' + getLocation()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getLocation on 319 Code: data = json.load(urlopen("http://ipinfo.io/json")) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: urlopen on 216 Code: return opener.open(url, data, timeout) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: open on 519 Code: response = self._open(req, data) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _open on 536 Code: result = self._call_chain(self.handle_open, protocol, protocol + caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _call_chain on 496 Code: result = func(*args) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: http_open on 1377 Code: return self.do_open(http.client.HTTPConnection, req) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: do_open on 1351 Code: raise URLError(err) caused an error!
+
+
+
+Error log on: 01/20/25 : 21:37
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/20/25 : 21:42
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/21/25 : 15:04
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 01/22/25 : 18:08
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 02/11/25 : 13:09
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 02/12/25 : 12:44
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 03/17/25 : 13:21
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 03/17/25 : 13:21
+User Query:None
+The following error occurred: 'NoneType' object has no attribute 'text'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 40 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 77 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 331 Code: temp = data.find("div", class_="BNeawe").text caused an error!
+
+
+
+Error log on: 03/21/25 : 17:50
+User Query:set an alarm for
+The following error occurred: string index out of range
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 42 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startListen on 25 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: handleQuery on 35 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 26 Code: self.command.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: setAlarm on 49 Code: output = gF.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: setAlarm on 210 Code: hour, minute, second = extractTimeAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: extractTimeAlarm on 173 Code: while query[loc] != " ": caused an error!
+
+
+
+Error log on: 03/25/25 : 20:30
+User Query:None
+The following error occurred: 'NoneType' object is not subscriptable
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 45 Code: self.__checkForReminders()  # Checking for possible reminders set up for today caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __checkForReminders on 33 Code: self.commands.checkReminder()  # Checks for any reminders set for today caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: checkReminder on 39 Code: output = gF.checkTimer() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: checkTimer on 156 Code: output = myRem.checkForReminders() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\reminder.py Function: checkForReminders on 38 Code: reminder: str | None = self.__checkReminder(today) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\reminder.py Function: __checkReminder on 16 Code: return data[date] caused an error!
+
+
+
+Error log on: 03/29/25 : 15:32
+User Query:set a reminder on 13th
+The following error occurred: run loop already started
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 46 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startListen on 29 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: handleQuery on 39 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 23 Code: self.command.setReminder(query)  # UNDER DEVELOPMENT caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: setReminder on 35 Code: self.speaker.speak(f"Setting reminder on {date}") caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\outputHandling.py Function: speak on 17 Code: pyttsx3.speak(audio) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\site-packages\pyttsx3\__init__.py Function: speak on 30 Code: engine.runAndWait() caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\site-packages\pyttsx3\engine.py Function: runAndWait on 177 Code: raise RuntimeError('run loop already started') caused an error!
+
+
+
+Error log on: 04/01/25 : 16:33
+User Query:set an alarm at hours set an alarm at 4:50 p.m.
+The following error occurred: invalid literal for int() with base 10: 'hours'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 46 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startListen on 29 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: handleQuery on 39 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 26 Code: self.command.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: setAlarm on 49 Code: output = gF.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: setAlarm on 210 Code: hour, minute, second = extractTimeAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: extractTimeAlarm on 188 Code: return int(timeStr), minute, second caused an error!
+
+
+

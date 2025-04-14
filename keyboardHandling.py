@@ -23,7 +23,7 @@ class KeyboardHandler:
         with self.listener(on_press=self.__press_on) as lis:
             lis.join()
 
-        # If code reaches here, it means the desired key has been pressed
+        # If code reaches here, it means the target key has been pressed
         return 1
 
 
@@ -31,4 +31,4 @@ class KeyboardHandler:
 if __name__ == "__main__":
     kH = KeyboardHandler()
     if kH.listenForKey("Key.ctrl_l"):
-        print("hehe boi")
+        print("test")

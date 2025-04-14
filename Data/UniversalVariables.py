@@ -1,5 +1,3 @@
-# This file contains all the external data that is required by other files in dictionary form
-
 websites = {  # All the websites and their respective URLs that is required by the user
     "youtube": "https://www.youtube.com/",
     "wikipedia": "https://www.wikipedia.com/",
@@ -7,7 +5,9 @@ websites = {  # All the websites and their respective URLs that is required by t
     "whats app": "https://web.whatsapp.com/",
     "google": "https://www.google.com",
     "chrome": "https://www.google.com",
-    "mao": "https://en.wikipedia.org/wiki/Mao_Zedong"
+    "mao": "https://en.wikipedia.org/wiki/Mao_Zedong",
+    "chat": "https://chatgpt.com/",
+    "chatgpt": "https://chatgpt.com/"
 }
 
 

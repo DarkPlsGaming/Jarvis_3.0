@@ -10,6 +10,15 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def openLayout(self, layout: str):
+        if layout != "study":
+            return
+
+        self.speaker.speak("Opening Study Preset")
+        self.dealOpen("open youtube", voice=False)
+        self.dealOpen("open chatgpt", voice=False)
+        # self.dealOpen("")
+
     def wow(self):
         gF.mao()
         self.speaker.speak("""\
@@ -78,11 +87,14 @@ class Commands:
         self.speaker.speak(phrase + temp)
 
 
-    def dealOpen(self, query: str):  # All queries related to opening applications or websites are processed here
+    def dealOpen(self, query: str, *, voice: bool = True):  # All queries related to opening applications or websites are processed here
         app = gF.openWebApps(query)
         if not app:
             self.speaker.speak("Sorry, the application was not found!")
             return None
+        if not voice:
+            return
+
         self.speaker.speak(f"Opening {app}")
 
 

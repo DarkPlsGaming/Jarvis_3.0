@@ -12,9 +12,12 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if ("study" in query or "studying" in query) and ("layout" in query or "preset" in query):
+            self.command.openLayout("study")
+            return
+
         if "wow" in query:
             self.command.wow()
-
 
         if "mau" in query:
             self.command.mao()

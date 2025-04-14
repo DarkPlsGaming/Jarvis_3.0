@@ -1,8 +1,10 @@
 requests
 bs4
 PyAudio
+Pillow
 speechRecognition
 pynput
 pywinauto
 pyttsx3
 psutil
+urllib
