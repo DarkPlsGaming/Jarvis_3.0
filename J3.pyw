@@ -52,8 +52,8 @@ class InitJarvis:
             self.__startDiscord()  # Starting Discord Bot Services
             self.__startListen()  # Starting listening for key input
 
-        except Exception as e:  # Error Handling
-            self.errorHandler.handleError(e.__traceback__, e, self.query)
+        except Exception as ex:  # Error Handling
+            self.errorHandler.handleError(e.__traceback__, ex, self.query)
 
 if __name__ == "__main__":
     jarvis = InitJarvis()
