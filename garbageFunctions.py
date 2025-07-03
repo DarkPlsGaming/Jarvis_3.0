@@ -309,7 +309,7 @@ def getAppWeb(query: str) -> str | None:  # For openWebApps function, gets the a
     try:
         startLoc = query.find("open") + 5  # Locating "open" in user query
         endLoc = startLoc
-        # Old Condition: while query[endLoc] != " " and endLoc < len(query)-1:, Note: Old condition will ignore everything after whitespace, e.g. 'jarvis open discord please', please will be ignored but in something like 'open kali linux', linux will also be ignored. Current condition ensures that all words are included regardless of the whitespace e.g. 'kali linux' will be included but 'discord please' will also be included which will cause unexpected behaviours. Choose the condition which suits you the best! - Liman
+        # Old Condition: while query[endLoc] != " " and endLoc < len(query)-1:, Note: Old condition will ignore everything after whitespace, e.g. 'jarvis open discord please', please will be ignored but in something like 'open kali linux', linux will also be ignored which will cause errors. Current condition ensures that all words are included regardless of the whitespace e.g. 'kali linux' will be included but 'discord please' will also be included which will cause unexpected behaviours. Choose the condition which suits you the best! - Liman
         while endLoc < len(query)-1:
             endLoc += 1
 
