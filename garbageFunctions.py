@@ -8,9 +8,26 @@ import datetime
 import os
 import sys
 from bs4 import BeautifulSoup
+import keyboardHandling
 import openAppSites
+import imageDetection
 import reminder
 import JTime
+import time
+
+
+def startVM():
+    imgDet = imageDetection.ImageDetector()
+    time.sleep(3)
+    pos = imgDet.detectImage('Data/Images/start.png')
+    if isinstance(pos, int):
+        return 0
+    mouseHandler = keyboardHandling.MouseHandler()
+    mouseHandler.set_pos((pos.left + pos.width / 2, pos.top + pos.height / 2))
+    mouseHandler.click(Button="left")
+    del imgDet
+    del mouseHandler
+    return 1
 
 
 def mao():
@@ -170,8 +187,12 @@ def extractTimeAlarm(query: str) -> [int, int, int]:
         loc = query.find("on")
 
     # Finding starting of time
-    while query[loc] != " ":
-        loc += 1
+    try:
+        while query[loc] != " ":
+            loc += 1
+    except IndexError:
+        return -1, -1, -1
+
     loc += 1
 
     timeStr = ""
@@ -208,6 +229,9 @@ def setAlarm(query: str) -> str | None:
 
     alarm = JTime.Alarm()
     hour, minute, second = extractTimeAlarm(query)
+
+    if hour < 0 or minute < 0 or second < 0:
+        return None
 
     # Converting to military time
     if "p.m." in query:
@@ -285,7 +309,7 @@ def getAppWeb(query: str) -> str | None:  # For openWebApps function, gets the a
     try:
         startLoc = query.find("open") + 5  # Locating "open" in user query
         endLoc = startLoc
-        while query[endLoc] != " " and endLoc < len(query)-1:
+        while endLoc < len(query)-1:  # Old: while query[endLoc] != " " and endLoc < len(query)-1:, Note: Old condition will ignore everything after whitespace, e.g. 'jarvis open discord please', please will be deleted but in something like 'open kali linux', linux will be deleted. Current condition ensures that all words are included regardless of the whitespace e.g. 'kali linux' will be included. Choose the condition which suits you the best!
             endLoc += 1
 
         return query[startLoc:endLoc+1].strip()  # Returning the word that is after "open" in user query
@@ -340,4 +364,5 @@ def getGreetPhrase():
 
 
 if __name__ == "__main__":
-    print(extractDetails("Set a reminder on 30 October Play Minecraft"))
+    # print(extractDetails("Set a reminder on 30 October Play Minecraft"))
+    print(startVM())
