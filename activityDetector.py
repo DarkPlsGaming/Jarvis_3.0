@@ -15,6 +15,7 @@ class ActivityDetection:
         # Iterate through all running processes
         for proc in psutil.process_iter(['pid', 'name']):
             try:
+                print(proc.info['name'])
                 # Check if the application's name is in the process name
                 if app_name.lower() in proc.info['name'].lower():
                     return True
@@ -26,5 +27,12 @@ class ActivityDetection:
 
 
     def startCheck(self):
-        for app in self.applications:
-            self.__check_application_running(app)
+        # for app in self.applications:
+        #     self.__check_application_running(app)
+        if self.__check_application_running("pycharm"):
+            print(True)
+            return
+        print(False)
+
+if __name__ == "__main__":
+    ActivityDetection().startCheck()

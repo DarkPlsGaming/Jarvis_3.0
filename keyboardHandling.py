@@ -2,7 +2,7 @@
 
 # Imports
 import pynput.keyboard
-
+import pynput.mouse
 
 # Main Class
 class KeyboardHandler:
@@ -26,7 +26,22 @@ class KeyboardHandler:
         # If code reaches here, it means the target key has been pressed
         return 1
 
+# You added this along with imageDetection for opening VMWare, idiot!
+class MouseHandler:
+    def __init__(self):
+        self.mHandler = pynput.mouse.Controller()
 
+
+    def set_pos(self, pos: tuple[int, int]):
+        self.mHandler.position = pos
+
+
+    def click(self, Button: str):
+        if Button == "left":
+            self.mHandler.click(pynput.mouse.Button.left)
+            return
+
+        self.mHandler.click(pynput.mouse.Button.right)
 
 if __name__ == "__main__":
     kH = KeyboardHandler()

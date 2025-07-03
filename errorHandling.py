@@ -4,6 +4,7 @@
 import traceback
 import fileHandling
 import datetime
+import outputHandling
 import installation
 import sys
 
@@ -35,6 +36,17 @@ class ErrorHandling:
 
 
     def handleError(self, errorTraceback, err: Exception, query):
+        # Initializing Speaker
+        speaker = outputHandling.Speaker()
+
+        # Output
+        print("An Error has been logged!")
+        speaker.speak("An Error has been logged! Kindly check the logs file.")
+
+        # Deleting instance of speaker class
+        del speaker
+
+        # Handling the error
         tb = traceback.extract_tb(errorTraceback)
 
         for file, line, function, code in tb:

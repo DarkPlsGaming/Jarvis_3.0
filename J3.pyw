@@ -9,6 +9,7 @@ try:
     import keyboardHandling
     import inputHandling
     import commandHandling
+    import discordHandling
 except Exception as e:  # Error Handling
     errorHandling.ErrorHandling().handleError(e.__traceback__, e, '')  # Installing packages
 
@@ -21,6 +22,7 @@ class InitJarvis:
         self.keyHandler = keyboardHandling.KeyboardHandler()  # Initializing for listening to user key
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
+        self.disHandler = discordHandling.DiscordHandler()  # Initializer for Discord Handler
         self.query = None
 
     def __startListen(self):  # Listening for particular user key for activation
@@ -33,6 +35,10 @@ class InitJarvis:
         self.commands.checkReminder()
 
 
+    def __startDiscord(self):
+        self.disHandler.run()
+
+
     def handleQuery(self, query: str):
         # print(query)
         self.query = query
@@ -43,6 +49,7 @@ class InitJarvis:
         try:
             self.commands.greet()  # Greeting the user
             self.__checkForReminders()  # Checking for possible reminders set up for today
+            self.__startDiscord()  # Starting Discord Bot Services
             self.__startListen()  # Starting listening for key input
 
         except Exception as e:  # Error Handling

@@ -10,14 +10,26 @@ class Commands:
         self.speaker = Speaker()  # Initializing output class
 
 
+    def openVMWare(self):
+        self.dealOpen("open linux", voice=False)
+        if not gF.startVM():
+            self.speaker.speak("Oops, I couldn't open linux. Do something in your life yourself for once.")
+
+
     def openLayout(self, layout: str):
-        if layout != "study":
+        self.speaker.speak(f"Opening {layout} Preset")
+
+        if layout == "hacking":
+            self.dealOpen("open try hack me", voice=False)
+            self.dealOpen("open hack the box", voice=False)
+            self.openVMWare()
             return
 
-        self.speaker.speak("Opening Study Preset")
-        self.dealOpen("open youtube", voice=False)
-        self.dealOpen("open chatgpt", voice=False)
-        # self.dealOpen("")
+        if layout == "study":
+            self.dealOpen("open youtube", voice=False)
+            self.dealOpen("open chatgpt", voice=False)
+            return
+
 
     def wow(self):
         gF.mao()
@@ -104,4 +116,4 @@ class Commands:
 
 if __name__ == "__main__":
     command = Commands()
-    command.wow()
+    command.openVMWare()

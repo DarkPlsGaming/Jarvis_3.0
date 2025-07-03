@@ -8,3 +8,6 @@ pywinauto
 pyttsx3
 psutil
 urllib
+pyautogui
+opencv-python
+discord

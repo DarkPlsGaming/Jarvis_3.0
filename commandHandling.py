@@ -12,6 +12,10 @@ class CommandHandling:
 
     # The main method that handles user query
     def handleCommand(self, query: str):
+        if ("hack" in query or "cyber" in query) and ("layout" in query or "preset" in query):
+            self.command.openLayout("hacking")
+            return
+
         if ("study" in query or "studying" in query) and ("layout" in query or "preset" in query):
             self.command.openLayout("study")
             return

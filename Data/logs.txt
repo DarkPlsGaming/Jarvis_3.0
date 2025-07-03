@@ -256,3 +256,235 @@ In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: 
 
 
 
+Error log on: 04/17/25 : 17:27
+User Query:set an alarm at
+The following error occurred: string index out of range
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 46 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startListen on 29 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: handleQuery on 39 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 32 Code: self.command.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: setAlarm on 62 Code: output = gF.setAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: setAlarm on 210 Code: hour, minute, second = extractTimeAlarm(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: extractTimeAlarm on 173 Code: while query[loc] != " ": caused an error!
+
+
+
+Error log on: 05/19/25 : 14:25
+User Query:None
+The following error occurred: <urlopen error [Errno 11001] getaddrinfo failed>
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 44 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 102 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 353 Code: url = f"https://www.google.com/search?q={'Temperature in' + getLocation()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getLocation on 344 Code: data = json.load(urlopen("http://ipinfo.io/json")) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: urlopen on 216 Code: return opener.open(url, data, timeout) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: open on 519 Code: response = self._open(req, data) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _open on 536 Code: result = self._call_chain(self.handle_open, protocol, protocol + caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _call_chain on 496 Code: result = func(*args) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: http_open on 1377 Code: return self.do_open(http.client.HTTPConnection, req) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: do_open on 1351 Code: raise URLError(err) caused an error!
+
+
+
+Error log on: 05/27/25 : 07:00
+User Query:None
+The following error occurred: module 'threading' has no attribute 'thread'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 52 Code: self.__startDiscord()  # Starting Discord Bot Services caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startDiscord on 39 Code: self.disHandler.run() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\discordHandling.py Function: run on 38 Code: disthread = threading.thread(target=self.client.run, args=self.token) caused an error!
+
+
+
+Error log on: 05/27/25 : 07:01
+User Query:None
+The following error occurred: module 'threading' has no attribute 'thread'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 52 Code: self.__startDiscord()  # Starting Discord Bot Services caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: __startDiscord on 39 Code: self.disHandler.run() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\discordHandling.py Function: run on 38 Code: disthread = threading.thread(target=self.client.run, args=self.token) caused an error!
+
+
+
+Error log on: 05/27/25 : 07:02
+User Query:None
+The following error occurred: module 'threading' has no attribute 'thread'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 52 Code: self.__startDiscord()  # Starting Discord Bot Services caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startDiscord on 39 Code: self.disHandler.run() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\discordHandling.py Function: run on 38 Code: disthread = threading.thread(target=self.client.run, args=self.token) caused an error!
+
+
+
+Error log on: 05/27/25 : 07:02
+User Query:None
+The following error occurred: module 'threading' has no attribute 'thread'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 53 Code: self.__startDiscord()  # Starting Discord Bot Services caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startDiscord on 39 Code: self.disHandler.run() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\discordHandling.py Function: run on 38 Code: disthread = threading.thread(target=self.client.run, args=self.token) caused an error!
+
+
+
+Error log on: 05/27/25 : 07:02
+User Query:None
+The following error occurred: module 'threading' has no attribute 'thread'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 52 Code: self.__startDiscord()  # Starting Discord Bot Services caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startDiscord on 39 Code: self.disHandler.run() caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\discordHandling.py Function: run on 38 Code: disthread = threading.thread(target=self.client.run, args=self.token) caused an error!
+
+
+
+Error log on: 05/28/25 : 20:05
+User Query:
+The following error occurred: No module named 'discordHandling'
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: <module> on 12 Code: import discordHandling caused an error!
+
+
+
+Error log on: 06/01/25 : 11:00
+User Query:None
+The following error occurred: <urlopen error [Errno 11002] getaddrinfo failed>
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\J3.pyw Function: start on 50 Code: self.commands.greet()  # Greeting the user caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: greet on 102 Code: temp = f"The temperature outside is {gF.getTemperature()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getTemperature on 353 Code: url = f"https://www.google.com/search?q={'Temperature in' + getLocation()}" caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: getLocation on 344 Code: data = json.load(urlopen("http://ipinfo.io/json")) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: urlopen on 216 Code: return opener.open(url, data, timeout) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: open on 519 Code: response = self._open(req, data) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _open on 536 Code: result = self._call_chain(self.handle_open, protocol, protocol + caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: _call_chain on 496 Code: result = func(*args) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: http_open on 1377 Code: return self.do_open(http.client.HTTPConnection, req) caused an error!
+
+In File: C:\Users\alies\AppData\Local\Programs\Python\Python310\lib\urllib\request.py Function: do_open on 1351 Code: raise URLError(err) caused an error!
+
+
+
+Error log on: 07/03/25 : 18:27
+User Query:open whatsapp
+The following error occurred: Could not create the process "whatsapp.exe"
+Error returned by CreateProcess: (2, 'CreateProcess', 'The system cannot find the file specified.')
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 53 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startListen on 31 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: handleQuery on 45 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 45 Code: self.command.dealOpen(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: dealOpen on 107 Code: app = gF.openWebApps(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: openWebApps on 328 Code: if not openAppSite.openApplication(appName): caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\openAppSites.py Function: openApplication on 21 Code: self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\lib\site-packages\pywinauto\application.py Function: start on 1052 Code: raise AppStartError(message) caused an error!
+
+
+
+Error log on: 07/03/25 : 18:30
+User Query:open whatsapp
+The following error occurred: Could not create the process "whatsapp.exe"
+Error returned by CreateProcess: (2, 'CreateProcess', 'The system cannot find the file specified.')
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 53 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startListen on 31 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: handleQuery on 45 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 45 Code: self.command.dealOpen(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: dealOpen on 107 Code: app = gF.openWebApps(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: openWebApps on 328 Code: if not openAppSite.openApplication(appName): caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\openAppSites.py Function: openApplication on 22 Code: self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\lib\site-packages\pywinauto\application.py Function: start on 1052 Code: raise AppStartError(message) caused an error!
+
+
+
+Error log on: 07/03/25 : 18:31
+User Query:open whatsapp
+The following error occurred: Could not create the process "whatsapp.exe"
+Error returned by CreateProcess: (2, 'CreateProcess', 'The system cannot find the file specified.')
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 53 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startListen on 31 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: handleQuery on 45 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 45 Code: self.command.dealOpen(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: dealOpen on 107 Code: app = gF.openWebApps(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: openWebApps on 328 Code: if not openAppSite.openApplication(appName): caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\openAppSites.py Function: openApplication on 21 Code: self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\lib\site-packages\pywinauto\application.py Function: start on 1052 Code: raise AppStartError(message) caused an error!
+
+
+
+Error log on: 07/03/25 : 18:35
+User Query:open whatsapp
+The following error occurred: Could not create the process "whatsapp.exe"
+Error returned by CreateProcess: (2, 'CreateProcess', 'The system cannot find the file specified.')
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: start on 53 Code: self.__startListen()  # Starting listening for key input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: __startListen on 31 Code: self.handleQuery(self.inpHandler.startListen())  # Starting voice input caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\main.py Function: handleQuery on 45 Code: self.cmdHandler.handleCommand(query)  # Sending command to commandHandling.py file caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commandHandling.py Function: handleCommand on 45 Code: self.command.dealOpen(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\commands.py Function: dealOpen on 107 Code: app = gF.openWebApps(query) caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\garbageFunctions.py Function: openWebApps on 328 Code: if not openAppSite.openApplication(appName): caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\openAppSites.py Function: openApplication on 21 Code: self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application caused an error!
+
+In File: C:\Users\alies\GithubProjects\Jarvis_3.0\venv\lib\site-packages\pywinauto\application.py Function: start on 1052 Code: raise AppStartError(message) caused an error!
+
+
+
