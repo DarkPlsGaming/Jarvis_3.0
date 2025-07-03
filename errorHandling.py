@@ -36,16 +36,6 @@ class ErrorHandling:
 
 
     def handleError(self, errorTraceback, err: Exception, query):
-        # Initializing Speaker
-        speaker = outputHandling.Speaker()
-
-        # Output
-        print("An Error has been logged!")
-        speaker.speak("An Error has been logged! Kindly check the logs file.")
-
-        # Deleting instance of speaker class
-        del speaker
-
         # Handling the error
         tb = traceback.extract_tb(errorTraceback)
 
@@ -59,6 +49,13 @@ class ErrorHandling:
             insMod.install()  # Installing necessary modules
             del insMod
             sys.exit(0)
+        # If not module not found error
+        # Initializing Speaker
+        speaker = outputHandling.Speaker()
+        # Output
+        speaker.speak("An Error has been logged! Kindly check the logs file.")
+        # Deleting instance of speaker class
+        del speaker
 
         # Specific Error Handling to be appended by Lord Lafiz
         self.__saveOutput(err, query)

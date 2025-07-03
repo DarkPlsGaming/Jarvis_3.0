@@ -17,7 +17,6 @@ class OpenAppSites:
         for apps in Data.UniversalVariables.applications:  # Looping through all the applications known in Data
             if app != apps:  # If not found, move on to the next application
                 continue
-
             self.applic.start(Data.UniversalVariables.applications.get(apps))  # If found, start the application
             return True
 
