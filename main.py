@@ -2,7 +2,6 @@
 
 # Importing Error Handling file
 import errorHandling
-import scheduleManager
 
 # Checking for external packages
 try:
@@ -10,6 +9,8 @@ try:
     import keyboardHandling
     import inputHandling
     import commandHandling
+    import discordHandling
+    import scheduleManager
 except Exception as e:  # Error Handling
     errorHandling.ErrorHandling().handleError(e.__traceback__, e, '')  # Installing packages
 
@@ -23,6 +24,7 @@ class InitJarvis:
         self.inpHandler = inputHandling.InputListener()  # Initialized for speech input
         self.cmdHandler = commandHandling.CommandHandling()  # Initialized for command handling
         self.schManager = scheduleManager.ScheduleManager()  # Initialized for Schedule Handling
+        self.disHandler = discordHandling.DiscordHandler()  # Initializer for Discord Handler
         self.query = None
 
     def __startListen(self):  # Listening for particular user key for activation
@@ -34,9 +36,11 @@ class InitJarvis:
     def __checkForReminders(self):
         self.commands.checkReminder()  # Checks for any reminders set for today
 
-
     def __startTodaySchedule(self):
         self.schManager.startSchedule()
+
+    def __startDiscord(self):
+        self.disHandler.run()
 
 
     def handleQuery(self, query: str):
@@ -50,11 +54,11 @@ class InitJarvis:
             self.commands.greet()  # Greeting the user
             self.__checkForReminders()  # Checking for possible reminders set up for today
             self.__startTodaySchedule()  # Starting today's schedule
+            self.__startDiscord()  # Starting Discord Bot Services
             self.__startListen()  # Starting listening for key input
 
-
-        except Exception as e:  # Error Handling
-            self.errorHandler.handleError(e.__traceback__, e, self.query)
+        except Exception as ex:  # Error Handling
+            self.errorHandler.handleError(e.__traceback__, ex, self.query)
 
 if __name__ == "__main__":
     jarvis = InitJarvis()
