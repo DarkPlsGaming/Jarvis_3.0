@@ -1,0 +1,3 @@
+Command: 'open whatsapp'
+Error: Whatsapp opens, and closes after 3 seconds.
+Possible Reason: Improper Handling of the class instance. Object gets deleted after usage.

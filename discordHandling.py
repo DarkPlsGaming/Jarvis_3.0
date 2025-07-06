@@ -46,4 +46,4 @@ if __name__ == "__main__":
     bot_handler.run()
     while True:
         pass
-    print('asd')
+    # print('asd')

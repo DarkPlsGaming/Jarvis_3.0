@@ -42,7 +42,6 @@ class ScheduleManager:
 
     def __initSchedule(self):
         if not self.schedule:
-            self.speaker.speak("There is no schedule set for today!")
             return
         self.__giveIntro()
         for schedule in self.schedule:

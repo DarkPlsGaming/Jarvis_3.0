@@ -16,6 +16,49 @@ import JTime
 import time
 
 
+def openReport():
+    os.system('notepad Data/ProgressReport.txt')
+
+
+def formProgressReport(totalData, totalTime, gamesData, browserData, programmingData, messagingData, otherData, startDate, endDate):
+    data = f"""
+    PROGRESS REPORT BY JARVIS
+    
+    Good Morning Sir, your progress report from last week is ready.
+    
+    Your total screentime was {totalTime} starting from date {startDate} and ending on {endDate} 
+    
+    You spent a total of {convertMinutesToTime(sum(programmingData.values()))} programming.
+    You spent a total of {convertMinutesToTime(sum(gamesData.values()))} gaming.
+    You spent a total of {convertMinutesToTime(sum(browserData.values()))} browsing.
+    You spent a total of {convertMinutesToTime(sum(messagingData.values()))} messaging.
+    You spent a total of {convertMinutesToTime(sum(otherData.values()))} on other activities.
+    
+    Your recorded activity in detail:
+    """
+    data += str(totalData)
+    return data
+
+
+def convertMinutesToTime(minutes: int) -> str:
+    hours = 0
+    while minutes > 60:
+        minutes -= 60
+        hours += 1
+    outStr = ""
+    if hours > 1:
+        outStr += f'{hours} hours '
+    if hours == 1:
+        outStr += f'{hours} hour '
+    if minutes > 1:
+        outStr += f'{minutes} minutes'
+    if minutes == 1:
+        outStr += f'{minutes} minute'
+    if not outStr:
+        outStr = None
+    return outStr
+
+
 def startVM():
     imgDet = imageDetection.ImageDetector()
     time.sleep(3)
